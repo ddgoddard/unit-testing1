@@ -25,6 +25,13 @@ public class StudentTest {
 		student2.setMajorComplete(true);
 	}
 
+    @Test
+    public void testGetStudentCount() {
+        int currentStudentCount = Student.getStudentCount();
+        Student tempStudent = new Student("Dale", "Diaz");
+        assertEquals(Student.getStudentCount(), currentStudentCount + 1);
+    }
+
 	@Test
 	public void testGetCurrentEarnedCr() {
 		int credits = 120; 
@@ -35,7 +42,7 @@ public class StudentTest {
 	public void testGetCurrentRemainingCr() {
 		int credits = 20;
 		student1.setAnticipatedAdditionalCr(credits);
-		 assertTrue(student1.getAnticipatedRemainingCr() == 0);
+		 assertTrue(student1.getAnticipatedRemainingCr() <= 0);
 		}
 	
 	@Test
